@@ -27,4 +27,49 @@ def guess(x):
     print(f'Yah! Congratulations! You have guessed the number {random_number}')
 
 # Calling the 'guess' function with an argument '10' to guess a number between 1 and 10
-guess(10)
+    
+
+# Defining a function 'computer_guess' that takes an argument 'x'   
+def coumputer_guess (x):
+    # Initializing the variable 'low' to 1
+    low = 1
+
+    # Initializing the variable 'high' to the value of 'x'
+    high = x
+
+    # Initializing the variable 'feedback' to an empty string
+    feedback = ''
+
+    # Starting a while loop that continues until the user inputs 'c' for correct
+    while feedback != 'c' :
+
+         # Checking if 'low' is not equal to 'high'
+        if low != high:
+
+            # Generating a random guess between 'low' and 'high'
+            guess = random.randint(low,high)
+
+        else:
+
+            # Assigning 'guess' to 'low' when 'low' equals 'high' (the last possible guess)
+            # Note: Comment suggests it could be 'high' as well because 'low' equals 'high'
+            guess = low # could be high b/c low = high
+
+        # Asking the user for feedback on the guess: too high, too low, or correct    
+        feedback = input(f'Is {guess} too high (H), too low(L), or Correct (c)??').lower()
+
+        # Checking if the feedback is 'h' for too high
+        if feedback =='h':
+             # Updating 'high' to be one less than the guess
+            high = guess - 1
+
+        # Checking if the feedback is 'l' for too low
+        elif feedback == 'l':
+            # Updating 'low' to be one more than the guess
+            low = guess + 1
+
+
+    # Printing a message indicating the computer guessed the user's number correctly
+    print (f'Yah ! The cpmputer guessed your number,  {guess}, correctly !')
+
+coumputer_guess(1000)
